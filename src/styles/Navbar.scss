@@ -1,0 +1,33 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  color: #fff;
+  background-color: #555454;
+  min-width: 100vw;
+  border-bottom: 1px solid #3d3d3d;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  ul {
+    display: flex;
+    gap: 2rem;
+
+    li {
+      list-style: none;
+      line-height: 2.2;
+    }
+
+    a {
+      display: flex;
+      text-decoration: none;
+      color: white;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  }
+}

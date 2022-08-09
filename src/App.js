@@ -1,25 +1,95 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, useRoutes } from 'react-router-dom';
+import { Navbar, Home, Login, Register, Posts, Profile } from './components';
+import PrivateRoutes from './util/PrivateRoutes';
+import { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+const App = () => {
+  // STATES
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [token, setToken] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [allPosts, setAllPosts] = useState([]);
+  const [messages, setMessages ] =useState([]);
 
-function App() {
+  
+
+  // APP RENDER
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='App'>
+        <Navbar
+          loggedIn={loggedIn}
+          setLoggedIn={setLoggedIn}
+          setToken={setToken}
+        />
+        <Routes>
+          {/* {PRIVATE ROUTES} */}
+          <Route
+            path='/profile'
+            element={
+              <Profile username={username} token={token} loggedIn={loggedIn} messages={messages} setMessages={setMessages} />
+            }
+          />
+          useRoutes([
+            <Route
+            path='/'
+            element={
+              <Login
+                username={username}
+                password={password}
+                setUsername={setUsername}
+                setPassword={setPassword}
+                token={token}
+                setToken={setToken}
+                setLoggedIn={setLoggedIn}
+              />
+            }
+          />
+           <Route
+            path='/login'
+            element={
+              <Login
+                username={username}
+                password={password}
+                setUsername={setUsername}
+                setPassword={setPassword}
+                token={token}
+                setToken={setToken}
+                setLoggedIn={setLoggedIn}
+              />
+            }
+          />
+          ])
+          <Route
+            path='/Register'
+            element={
+              <Register
+                username={username}
+                password={password}
+                token={token}
+                setToken={setToken}
+                setUsername={setUsername}
+                setPassword={setPassword}
+                setLoggedIn={setLoggedIn}
+              />
+            }
+          />
+          <Route
+            path='/posts/'
+            element={
+              <Posts
+                allPosts={allPosts}
+                setAllPosts={setAllPosts}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

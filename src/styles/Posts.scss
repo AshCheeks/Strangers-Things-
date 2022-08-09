@@ -1,0 +1,87 @@
+.main-post-container {
+  margin: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  .search-bar-content {
+    .search-bar {
+      margin-bottom: 2rem;
+      width: 40vw;
+      padding: 10px;
+      border: 1px solid #e6e6e6;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .search-button {
+      margin-left: 1rem;
+      margin-bottom: 15px;
+      width: 7rem;
+      padding: 7px;
+      font-size: 1rem;
+      background-color: black;
+      color: white;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  .post-card {
+    background-color: #cacaca;
+    color: #202022;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    outline: 2px solid #e6e6e6;
+    .card-author,
+    .card-title {
+      color: #000000;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    hr {
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      width: 100%;
+    }
+    .card-author {
+      font-size: 1.2rem;
+      p {
+        display: inline-block;
+        color: #34393a;
+      }
+
+      .price {
+        font-size: 1.1rem;
+      }
+      color: #34393a;
+    }
+
+    .card-main {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      background-color: #c0c0c0;
+      border-radius: 5px;
+      padding: 1rem 1.5rem;
+    }
+    .card-edit-btn,
+    .card-delete-btn {
+      width: 2rem;
+      margin-top: 1.2rem;
+      margin-right: 0.5rem;
+      height: 2rem;
+      text-align: center;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: #202022;
+      cursor: pointer;
+    }
+
+    .card-edit-btn.hidden .card-delete-btn.hidden {
+      display: none;
+    }
+  }
+}
